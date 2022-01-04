@@ -1,0 +1,53 @@
+﻿@model ProductVM
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="top-text header-text">
+                    <h1>KAHVECİ DEMİR TİCARETİ</h1>
+                    <P>Ürün yelpazemiz her çeşit sac,profil,boru,trapez ve çelik hasırdan daha nicelerine ulaşmaktadır.Sac kesme ve kıvırma işlemlerimiz mevcuttur.Müşterilerin talepleri doğrultusunda da özel ebatlarda sipariş hazırlamaktayız.</P>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listing-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="naccs">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="nacc">
+                                    <!-- first category listing of items -->
+                                    <li class="active">
+                                        <div>
+                                            <div class="col-lg-12">
+                                                <div class="owl-carousel owl-listing">
+                                                    <div class="item">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                @foreach (Product p in Model.Products)
+                                                                {
+                                                                    if (p.CategoryID == 2)
+                                                                    {
+                                                                        <partial name="_ProductItem" model="p" />
+                                                                    }
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model ContactVM
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="top-text header-text">
+                    <h3>İLETİŞİM</h3>
+                    <p>Esnaflarımıza Çanakkale'nin Çan ilçesindeki Sanayi Sitesinden,Facebook ve Instagram adreslerinden veya irtibat telefonlarından ulaşabilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div id="map">@Html.Raw(Model.Contact.Info5)</div>
+                        </div>
+                        <div class="col-lg-6 align-self-center">
+                            <form id="contact" asp-controller="Contact" asp-action="Index" method="post" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <fieldset>
+                                            <input asp-for="@Model.ContactForm.Name" placeholder="Adınız:" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <fieldset>
+                                            <input asp-for="@Model.ContactForm.Surname" placeholder="Soyadınız:" required="" autocomplete="off">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input asp-for="@Model.ContactForm.MailAddress" placeholder="Mail Adresiniz:" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input asp-for="@Model.ContactForm.Phone" placeholder="Telefonunuz:" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input asp-for="@Model.ContactForm.Subject" placeholder="Konu:" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <textarea asp-for="@Model.ContactForm.Message" placeholder="Mesajınız:" required=""></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane"></i> GÖNDER</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                @Html.AntiForgeryToken()
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

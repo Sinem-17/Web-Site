@@ -1,0 +1,148 @@
+﻿@model HomeVM
+@{
+    ViewBag.Title = Model.Meta.Info1;
+    ViewBag.Description = Model.Meta.Info2;
+    ViewBag.Keyword = Model.Meta.Info3;
+ }
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-controller="Search" asp-action="Index" id="search-form" autocomplete="off">
+                    <div class="row">
+                        @using (Html.BeginForm("ara"))
+                        {
+                            <div class="col-lg-8 align-self-center">
+                                <fieldset>
+                                    @Html.Editor("ara")
+                                    @Html.Hidden("ara")
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset>
+                                    <button class="main-button"><i class="fa fa-search"></i>Ara</button>
+                                </fieldset>
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popular-categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="naccs">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="menu">
+                                    <div class="first-thumb active">
+                                        <div class="thumb">
+                                            <span class="icon"><img src="images/search-icon-03.png" alt=""></span>
+                                            ERENLER LASTİK KAYNAĞI
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="thumb">
+                                            <span class="icon"><img src="images/search-icon-05.png" alt=""></span>
+                                            GÖNEN KAPORTA BOYA
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="thumb">
+                                            <span class="icon"><img src="images/search-icon-04.png" alt=""></span>
+                                            KAHVECİ DEMİR TİCARETİ
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="last-thumb">
+                                            <span class="icon"><img src="images/search-icon-03.png" alt=""></span>
+                                            MURAT OTO LASTİK
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 align-self-center">
+                                <ul class="nacc">
+                                    <li class="active">
+                                        <div>
+                                            <div class="thumb">
+                                                <div class="row">
+                                                    <div class="col-lg-5 align-self-center">
+                                                        <div class="left-text">
+                                                            <h4>Erenler Lastik Kaynağı</h4>
+                                                            <p>Ağırlıkla kamyon grubunda çalışırken yanaktan yarılmış....</p>
+                                                            <div class="main-white-button"><a asp-controller="Tire" asp-action="Index"><i class="fa fa-eye"></i>Göz At</a></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-7 align-self-center">
+                                                        <div class="right-image">
+                                                            <img src="/images/Uyeler/1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @foreach (Presentation p in Model.Presentations)
+                                    {
+                                        <li class="">
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>@p.Title</h4>
+                                                                <p>@p.Description</p>
+                                                                <div class="main-white-button"><a href="@p.Link"><i class="fa fa-eye"></i>Göz At</a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="@p.Picture" alt="@p.Title">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recent-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Son Eklenenler</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="owl-carousel owl-listing">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @foreach (Product p in Model.RecentProducts)
+                                {
+                                    <partial name="_ProductItem" model="p" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

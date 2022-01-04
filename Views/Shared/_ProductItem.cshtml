@@ -1,0 +1,15 @@
+﻿@model Product
+
+<div class="listing-item">
+    <div class="left-image">
+        <a href="#"><img src="@Model.Pictures.FirstOrDefault().PicturePath" alt="@Model.Pictures.FirstOrDefault().Name"></a>
+    </div>
+    <div class="right-content align-self-center">
+        <a href="#"><h4>@Model.Name</h4></a>
+        <h6></h6>
+        <span class="details"><em>@Model.Description</em></span>
+        <div class="main-white-button">
+            <a href="@Model.Detail" target="_blank" rel="nofollow" class="whatsapp"><i class="fa fa-whatsapp"></i><span>Whatsapp</span></a>
+        </div>
+    </div>
+</div>
